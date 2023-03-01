@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCases, getSingleCase } from "../../prismic";
+
+export async function getStaticPaths() {
+  const cases = await getCases() as any;
+  return cases.map(( item:any ) => {
+    return { params: { slug: item.uid }}
+  })
+}
+
+const { slug } = Astro.params;
+
+const caseItem = await getSingleCase(slug) as any;
+console.log(caseItem);
+---
+
+<Layout title={caseItem.data.listing_title + " | Case Study"}>
+  <p>case study page</p>
+</Layout>
+
+

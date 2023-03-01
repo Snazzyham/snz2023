@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import WorkListing from "../../components/WorkListing.svelte";
+import { getCases } from "../../prismic";
+
+const cases = (await getCases()) as any;
+console.log(cases);
+---
+
+<Layout title="Soham's Work">
+  <main>
+    <WorkListing data={cases} client:load />
+  </main>
+</Layout>
