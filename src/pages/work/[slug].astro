@@ -1,22 +1,41 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCases, getSingleCase } from "../../prismic";
+import * as prismicH from "@prismicio/helpers";
 
 export async function getStaticPaths() {
-  const cases = await getCases() as any;
-  return cases.map(( item:any ) => {
-    return { params: { slug: item.uid }}
-  })
+  const cases = (await getCases()) as any;
+  return cases.map((item: any) => {
+    return { params: { slug: item.uid } };
+  });
 }
 
 const { slug } = Astro.params;
 
-const caseItem = await getSingleCase(slug) as any;
+const caseItem = (await getSingleCase(slug)) as any;
 console.log(caseItem);
+console.log(caseItem.data.awards);
 ---
 
 <Layout title={caseItem.data.listing_title + " | Case Study"}>
-  <p>case study page</p>
+  <section
+    class="case-study"
+    style=`background-color: ${caseItem.data.primary}; color: ${caseItem.data.secondary}`
+  >
+    <h1>{prismicH.asText(caseItem.data.title)}</h1>
+    <h3>{caseItem.data.client}</h3>
+    {
+      caseItem.data.has_hero && (
+        <div class="">
+          <img
+            src={caseItem.data.hero_image.url}
+            alt={caseItem.data.listing_title}
+          />
+        </div>
+      )
+    }
+    <div class="">
+      <Fragment set:html={prismicH.asHTML(caseItem.data.body_content)} />
+    </div>
+  </section>
 </Layout>
-
-

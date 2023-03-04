@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Editorial";
+  src: url("/fonts/editorial/PPEditorialNew-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Editorial";
+  src: url("/fonts/editorial/PPEditorialNew-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Editorial";
+  src: url("/fonts/editorial/PPEditorialNew-Ultrabold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Editorial";
+  src: url("/fonts/editorial/PPEditorialNew-UltraboldItalic.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Editorial";
+  src: url("/fonts/editorial/PPEditorialNew-Ultralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Editorial";
+  src: url("/fonts/editorial/PPEditorialNew-UltralightItalic.otf")
+    format("opentype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montreal";
+  src: url("/fonts/montreal/PPNeueMontreal-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montreal";
+  src: url("/fonts/montreal/PPNeueMontreal-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.link-item {
+  @apply font-bold mr-6 hover:opacity-80 hover:underline underline-offset-4 transition-all;
+}

@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -17,26 +17,18 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body
+    class="dark:font-montreal font-editorial dark:bg-snzblack-primary dark:text-white bg-snzcream-primary text-snzblack-primary"
+  >
     <slot />
+    <nav
+      class="fixed bottom-0 left-0 right-0 w-full dark:bg-snzblack-secondary bg-snzcream-secondary h-16 flex items-center justify-end px-8"
+    >
+      <div>
+        <a href="/" class="link-item">Home</a>
+        <a href="/work" class="link-item">Work</a>
+        <a href="/writing" class="link-item">Thoughts</a>
+      </div>
+    </nav>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>

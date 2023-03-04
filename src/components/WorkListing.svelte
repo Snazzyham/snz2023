@@ -20,13 +20,16 @@
   }
 </script>
 
-<section style="background-color: {activeBg}" class="w-screen h-screen">
+<section
+  style="background-color: {activeBg}"
+  class="w-screen h-screen transition-all"
+>
   {#each data as item}
-    <a href={`/work/${item.uid}`}>
+    <a href={`/work/${item.uid}`} class="work-item">
       <h3
-        class={activeSection != "none" && activeSection != item.data.uid
-          ? "opacity-80"
-          : "opacity-100"}
+        class={activeSection != "none" && activeSection != item.uid
+          ? "opacity-20 transition-all"
+          : "opacity-100 transition-all"}
         style={activeSection === item.uid
           ? `color: ${activeText};`
           : "color: #fff;"}
