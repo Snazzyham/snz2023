@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-
   export let data: any;
 
   let activeText = "#fff";
@@ -22,13 +20,13 @@
 
 <section
   style="background-color: {activeBg}"
-  class="w-screen h-screen transition-all"
+  class="w-screen min-h-screen transition-all flex flex-col  justify-center px-8 lg:px-16"
 >
   {#each data as item}
-    <a href={`/work/${item.uid}`} class="work-item">
+    <a href={`/work/${item.uid}`} class="work-item text-4xl lg:text-6xl mb-6">
       <h3
         class={activeSection != "none" && activeSection != item.uid
-          ? "opacity-20 transition-all"
+          ? "opacity-30 transition-all scale-95"
           : "opacity-100 transition-all"}
         style={activeSection === item.uid
           ? `color: ${activeText};`
